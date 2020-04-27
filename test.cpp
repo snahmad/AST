@@ -2,6 +2,8 @@
 #include "Terminal.h"
 #include "PlusOp.h"
 #include "MinusOp.h"
+#include "MultiOP.h"
+#include "DivideOP.h"
 
 TEST(AST, EvaluateSingleTerminal) 
 {
@@ -46,6 +48,36 @@ TEST(AST, EvaluatePlusAndMinusExpression)
     PlusOp expression(terminal_left_for_plus, minus_op);
 
     EXPECT_EQ(-6, expression.evaluate());
+
+
+}
+TEST(AST, EvaluateSimpleMultiplyExpression)
+{
+    auto terminal_left = new Terminal(9);
+    auto terminal_right = new Terminal(8);
+    MultiOP multi_op(terminal_left, terminal_right);
+
+    EXPECT_EQ(72, multi_op.evaluate());
+}
+TEST(AST, EvaluateSimpleDivideExpression)
+{
+    auto terminal_left = new Terminal(72);
+    auto terminal_right = new Terminal(8);
+    DivideOP divide_op(terminal_left, terminal_right);
+
+    EXPECT_EQ(9, divide_op.evaluate());
+}
+
+TEST(AST, EvaluateComplexExpression)
+{
+    auto minus_expression = new MinusOp(new Terminal(10), new Terminal(2));
+
+    auto divide_expression = new DivideOP(new Terminal(9), new Terminal(3));
+
+    MultiOP multi_op(minus_expression, divide_expression);
+
+
+    EXPECT_EQ(24, multi_op.evaluate());
 
 
 }

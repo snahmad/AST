@@ -33,7 +33,9 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="DivideOP.h" />
     <ClInclude Include="MinusOp.h" />
+    <ClInclude Include="MultiOP.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NonTerminal.h" />
     <ClInclude Include="pch.h" />
@@ -41,7 +43,9 @@
     <ClInclude Include="Terminal.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DivideOP.cpp" />
     <ClCompile Include="MinusOp.cpp" />
+    <ClCompile Include="MultiOP.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NonTerminal.cpp" />
     <ClCompile Include="PlusOp.cpp" />
